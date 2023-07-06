@@ -22,7 +22,7 @@ jobs:
       - name: Change Working Directory
         run: cd icns-rs
       - name: Run tests
-        uses: actions-rs/cargo@v1]
+        uses: actions-rs/cargo@v1
         with:
           command: test
   rustfmt:
