@@ -16,7 +16,5 @@ jobs:
           toolchain: stable
           override: true
       - name: Publish
-        run: cargo publish --token ${CRATES_TOKEN}
+        run: cargo publish --token ${{ secrets.CRATES_TOKEN }}
         working-directory: ./icns-rs
-        env:
-          CRATES_IO_TOKEN: ${{ secrets.CRATES_TOKEN }}
