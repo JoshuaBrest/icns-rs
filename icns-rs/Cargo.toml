@@ -1,0 +1,20 @@
+[package]
+name = "icns-rs"
+version = "0.1.0"
+edition = "2021"
+description = "A library for reading and writing Apple Icon Image (.icns) files."
+license = "LGPL-3.0-or-later"
+homepage = "https://github.com/JoshuaBrest/icns/tree/master/icns-rs"
+documentation = "https://docs.rs/icns-rs"
+repository = "https://github.com/JoshuaBrest/icns"
+catagories = ["image"]
+keywords = ["icns", "image", "apple", "icon"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+image = "0.24.6"
+
+[[example]]
+name = "encode"
+path = "examples/encode.rs"

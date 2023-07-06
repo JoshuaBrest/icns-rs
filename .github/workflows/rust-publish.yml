@@ -1,0 +1,23 @@
+name: Cargo Publish
+on:
+  push:
+    tags:
+      - "rust-*"
+  workflow_dispatch:
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+      - name: Change Working Directory
+        run: cd icns-rs
+      - name: Publish
+        run: cargo publish --token ${CRATES_TOKEN}
+        env:
+          CRATES_IO_TOKEN: ${{ secrets.CRATES_TOKEN }}
