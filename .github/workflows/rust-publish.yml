@@ -8,9 +8,6 @@ jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./icns-rs
     steps:
       - uses: actions/checkout@v3
       - name: Setup Rust
@@ -20,5 +17,6 @@ jobs:
           override: true
       - name: Publish
         run: cargo publish --token ${CRATES_TOKEN}
+        working-directory: ./icns-rs
         env:
           CRATES_IO_TOKEN: ${{ secrets.CRATES_TOKEN }}
