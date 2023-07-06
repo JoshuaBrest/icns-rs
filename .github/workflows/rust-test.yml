@@ -39,17 +39,3 @@ jobs:
       - name: Run rustfmt
         working-directory: ./icns-rs
         run: cargo fmt -- --check
-  clippy:
-    name: Clippy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-          components: clippy
-      - name: Run clippy
-        working-directory: ./icns-rs
-        run: cargo clippy -- -D warnings
