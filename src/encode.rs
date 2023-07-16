@@ -86,17 +86,17 @@ impl IconFamily {
     /// and compile all the data into a single file.
     pub fn build(&self) -> Box<[u8]> {
         // Calculate the total size of the file
-        // let contents_table = self.create_contents_table();
+        let contents_table = self.create_contents_table();
 
         // Insert the TOC first
         let mut data = Vec::with_capacity(self.data.len() + 1);
-        // data.push(contents_table);
+        data.push(contents_table);
         for d in &self.data {
             data.push(d.clone());
         }
 
         let total_size = data.iter().map(|data| data.len()).sum::<u32>();
-        let mut buffer = Vec::with_capacity(total_size as usize);
+        let mut buffer = Vec::with_capacity(8 + total_size as usize);
 
         // Add the magic bytes, the total size and the data
         buffer.extend_from_slice(&MAGIC);
