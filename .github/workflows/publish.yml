@@ -1,8 +1,7 @@
 name: Cargo Publish
 on:
   push:
-    tags:
-      - rust-*
+    tags: '*'
   workflow_dispatch: null
 jobs:
   publish:
@@ -17,4 +16,3 @@ jobs:
           override: true
       - name: Publish
         run: cargo publish --token ${{ secrets.CRATES_TOKEN }}
-        working-directory: ./icns-rs

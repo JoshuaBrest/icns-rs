@@ -1,6 +1,6 @@
 use std::io::Write;
 
-use crate::{icns_format::IcnsDataEntry, image_types::IconFormats, packbits};
+use crate::{encode::IcnsDataEntry, formats::IconFormats, packbits};
 
 use image::{codecs::png::PngEncoder, imageops::FilterType, DynamicImage, ImageEncoder};
 
@@ -204,10 +204,10 @@ impl ImageBuilder {
 
     pub fn build(&self) -> Result<IcnsDataEntry, String> {
         let data = match self.format.get_format() {
-            crate::image_types::FileFormat::RGB => self.rgb_image(),
-            crate::image_types::FileFormat::ARGB => self.argb_image(),
-            crate::image_types::FileFormat::MASK => self.mask_image(),
-            crate::image_types::FileFormat::PNG => self.png_image(),
+            crate::formats::FileFormat::RGB => self.rgb_image(),
+            crate::formats::FileFormat::ARGB => self.argb_image(),
+            crate::formats::FileFormat::MASK => self.mask_image(),
+            crate::formats::FileFormat::PNG => self.png_image(),
         }?;
 
         Ok(IcnsDataEntry::new(self.format.get_bytes(), data))

@@ -1,4 +1,0 @@
-# Cargo
-/target/
-Cargo.lock
-# ^^^^^^^^ Lock files aren't allowed in libraries

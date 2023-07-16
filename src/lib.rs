@@ -1,12 +1,12 @@
-pub mod icns_format;
-pub mod image_encoder;
-pub mod image_types;
+pub mod builder;
+pub mod encode;
+pub mod formats;
 pub mod packbits;
 
-use icns_format::IconFamily;
+use builder::ImageBuilder;
+use encode::IconFamily;
+pub use formats::IconFormats;
 use image::DynamicImage;
-use image_encoder::ImageBuilder;
-pub use image_types::IconFormats;
 
 /// The main encoder struct
 /// Create a new encoder with `IcnsEncoder::new()`
